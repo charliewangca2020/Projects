@@ -10,6 +10,7 @@ namespace TransformService
     {
         public SourceAccount1()
         {
+            HasHeader = true;
         }
 
         public override void DoTransform(string[] row, String[] newRow)

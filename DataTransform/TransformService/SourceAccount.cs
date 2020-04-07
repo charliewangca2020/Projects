@@ -8,7 +8,7 @@ namespace TransformService
 {
     public abstract class SourceAccount
     {
-        public bool HasHeader { get; private set; }
+        public bool HasHeader { get; protected set; }
         public char[] ColumnDelimiter { get; private set; }
         public String OutputCSVFileName { get; set; }
 
@@ -18,6 +18,7 @@ namespace TransformService
         {
             HasHeader = false;
             ColumnDelimiter = new char[]{','};
+            _targetData = new TargetData();
         }
 
         public void TransformData(List<String> lines)

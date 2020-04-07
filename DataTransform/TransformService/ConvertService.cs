@@ -11,6 +11,10 @@ namespace TransformService
         public void Convert(String inputFileType, List<String> rows, String outputFileName)
         {
             var srcAccount = getSourceAccountObject(inputFileType);
+            if (srcAccount == null)
+            {
+                throw new InvalidOperationException(String.Format("{0} processor is not registered ", inputFileType));
+            }
             srcAccount.OutputCSVFileName = outputFileName;
             srcAccount.TransformData(rows);
         }
